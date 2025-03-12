@@ -24,6 +24,7 @@ public class PopUp : MonoBehaviour
         {
             Input.location.Start();
         }
+
         StartCoroutine(SpawnPopups());
     }
 
