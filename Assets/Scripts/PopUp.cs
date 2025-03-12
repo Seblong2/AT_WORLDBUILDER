@@ -7,6 +7,7 @@ using Mapbox.Unity.Utilities;
 using Mapbox.Utils;
 using System;
 
+
 public class PopUp : MonoBehaviour
 {
     public AbstractMap popUpMap; // Assigning the map from mapbox inside inspector
@@ -19,6 +20,10 @@ public class PopUp : MonoBehaviour
 
     void Start()
     {
+        if(Input.location.isEnabledByUser)
+        {
+            Input.location.Start();
+        }
         StartCoroutine(SpawnPopups());
     }
 
@@ -48,6 +53,15 @@ public class PopUp : MonoBehaviour
         float randomoffsetLAT = UnityEngine.Random.Range(-spawnRadius, spawnRadius);
         float randomoffsetLON = UnityEngine.Random.Range(-spawnRadius, spawnRadius);
 
+
+        //Ensuring popups spawn at least 50m (0.0005f) away from player
+        while (Mathf.Abs(randomoffsetLAT) < 0.0005f && Mathf.Abs(randomoffsetLON) < 0.0005f )
+        {
+            randomoffsetLAT = UnityEngine.Random.Range(-spawnRadius, spawnRadius);
+            randomoffsetLON = UnityEngine.Random.Range(-spawnRadius, spawnRadius);
+        }
+             
+
         //New Popup location based on GPS calculations
         float popupLAT = playerLAT + randomoffsetLAT;
         float popupLON = playerLON + randomoffsetLON;
@@ -57,16 +71,36 @@ public class PopUp : MonoBehaviour
         //Converting GPS Calculations to Mapbox world positions 
         Vector3 worldPos = popUpMap.GeoToWorldPosition(popupCoord, true);
 
-        //Instantiate popups
-        GameObject popup = Instantiate(popUpPrefab, worldPos, Quaternion.identity, mapCanvasUI);
+        //Making popup above ground
+        worldPos.y += 2f;
 
-        //Collection Functionality 
-        popup.GetComponent<Button>().onClick.AddListener(() => CollectPopup(popup));
+        //Instantiate popups
+        GameObject popup = Instantiate(popUpPrefab, worldPos, Quaternion.identity);
+        popup.tag = "Popup"; //Tagging object for OnClick to see
+
+      
 
 
     }
 
-     void CollectPopup(GameObject popup)
+
+    void Update()
+    {
+      if(Input.GetMouseButtonDown(0)) // Touch or click down
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if(hit.collider.CompareTag("Popup"))
+                {
+                    CollectPopup(hit.collider.gameObject);
+                }
+            }
+        }
+    }
+    void CollectPopup(GameObject popup)
     {
         activePopups--;
         Destroy(popup);
