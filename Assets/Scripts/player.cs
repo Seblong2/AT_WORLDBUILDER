@@ -31,6 +31,11 @@ public class Player : MonoBehaviour
         get { return monsters; } 
     }
 
+    public int Level
+    {
+        get { return level; }
+    }
+
     void Start()
     {
         levelData();

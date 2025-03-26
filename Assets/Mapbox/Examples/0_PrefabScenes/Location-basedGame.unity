@@ -242,7 +242,7 @@ MonoBehaviour:
   - {fileID: -9138418884273328558, guid: f531e89a1d9841a46945a69c32b34218, type: 3}
   - {fileID: -9138418884273328558, guid: 776fec24be878324ba637edc51764ba6, type: 3}
   player: {fileID: 843921211}
-  waitTime: 1
+  waitTime: 30
   startAmount: 5
   minRange: 5
   maxRange: 50
