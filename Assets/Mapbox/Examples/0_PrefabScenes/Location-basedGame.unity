@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 8030623}
   - component: {fileID: 8030622}
   - component: {fileID: 8030621}
+  - component: {fileID: 8030625}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -224,6 +225,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 843921208}
   m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
+--- !u!114 &8030625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8030620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cab8382de1e4d45b412e11b4995d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableMonsters:
+  - {fileID: -9138418884273328558, guid: f531e89a1d9841a46945a69c32b34218, type: 3}
+  - {fileID: -9138418884273328558, guid: 776fec24be878324ba637edc51764ba6, type: 3}
+  player: {fileID: 843921211}
+  waitTime: 1
+  startAmount: 5
+  minRange: 5
+  maxRange: 50
 --- !u!1 &137357532
 GameObject:
   m_ObjectHideFlags: 0
