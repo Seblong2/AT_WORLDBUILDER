@@ -12,6 +12,19 @@ public class MonsterSingleton : Singleton<MonsterSingleton>
     [SerializeField] private float minRange = 5.0f;
     [SerializeField] private float maxRange = 50.0f;
 
+    private List<Monster> activeMonsters = new List<Monster>();
+    private Monster selectedMonster;
+
+    public List<Monster> ActiveMonsters
+    { 
+        get { return activeMonsters; }
+    }
+
+    public Monster SelectedMonster
+    {
+        get { return selectedMonster; } 
+    }
+
     private void Awake()
     {
         Assert.IsNotNull(availableMonsters); // Debugging to check monsters spawn correction on init
@@ -28,6 +41,11 @@ public class MonsterSingleton : Singleton<MonsterSingleton>
         StartCoroutine(GenerateMonsters());
     }
 
+    public void MonsterWasSelected(Monster monster)
+    {
+        selectedMonster = monster;
+    }
+
     private IEnumerator GenerateMonsters()
     {
         while (true)
@@ -42,7 +60,7 @@ public class MonsterSingleton : Singleton<MonsterSingleton>
         float x = player.transform.position.x + GenerateRange();
         float z = player.transform.position.z + GenerateRange();
         float y = player.transform.position.y;
-        Instantiate(availableMonsters[index], new Vector3(x, y, z), Quaternion.identity);
+        activeMonsters.Add(Instantiate(availableMonsters[index], new Vector3(x, y, z), Quaternion.identity));
     }
 
     private float GenerateRange()

@@ -37,13 +37,20 @@ public class Monster : MonoBehaviour
 
     private void OnMouseDown()
     {
-        
+        GameSceneManager[] managers = FindObjectsOfType<GameSceneManager>(); //CHECKING IF CURRENTLY ACTIVE SCENE HOLDS A SCENE MANAGER
+        foreach (GameSceneManager gameSceneManager in managers) 
+        {
+        if(gameSceneManager.gameObject.activeSelf)
+            {
+                gameSceneManager.monsterTapped(this.gameObject);
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(this); // Stops destroying all monsters in world on monster selection
     }
 
     // Update is called once per frame
