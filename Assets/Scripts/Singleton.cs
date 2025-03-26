@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private T instance;
+    private static T instance;
 
-    public T Instance
+    public static T Instance
     {
         get
         {
@@ -14,11 +14,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
             {
                 instance = FindObjectOfType<T>();
             }
-            else
-            {
-                Destroy(gameObject);
-            }
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(instance); // Made changes to single so that it will now ignore everything trying to take over itself and only look for this specific instance 
             return instance;
         }
     }

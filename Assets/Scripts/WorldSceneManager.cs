@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class WorldSceneManager : GameSceneManager
 {
+    public GameObject monster;
+    private AsyncOperation loadscene;
     // Start is called before the first frame update
     void Start()
     {
