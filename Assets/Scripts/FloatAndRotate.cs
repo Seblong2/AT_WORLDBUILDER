@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloatAndRotate : MonoBehaviour
 {
     [SerializeField] private float rotateSpeed = 50;
-    [SerializeField] private float floatAmp = 2.0f;
+    [SerializeField] private float floatAmp = 0.5f;
     [SerializeField] private float floatFreq = 0.5f;
 
     private Vector3 startPos;

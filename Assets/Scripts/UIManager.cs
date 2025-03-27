@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI xpText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private GameObject menu;
+    
 
 
     private void Awake()
@@ -32,6 +33,11 @@ public class UIManager : MonoBehaviour
     public void updateXp()
     {
         xpText.text = GameManager.Instance.CurrentPlayer.Xp + " / " + GameManager.Instance.CurrentPlayer.RequiredXp; // Using gamemanager to refence the player xp and required Xp
+    }
+
+    public void menuBTNClicked()
+    {
+        toggleMenu();
     }
 
     public void toggleMenu()
