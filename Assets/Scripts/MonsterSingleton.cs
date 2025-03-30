@@ -6,7 +6,6 @@ using UnityEngine.Assertions;
 public class MonsterSingleton : Singleton<MonsterSingleton>
 {
     [SerializeField] private Monster[] availableMonsters;
-    [SerializeField] private Player player;
     [SerializeField] private float waitTime = 30.0f;
     [SerializeField] private int startAmount = 5;
     [SerializeField] private float minRange = 5.0f;
@@ -14,6 +13,7 @@ public class MonsterSingleton : Singleton<MonsterSingleton>
 
     private List<Monster> activeMonsters = new List<Monster>();
     private Monster selectedMonster;
+    private Player player;
 
     public List<Monster> ActiveMonsters
     { 
@@ -28,12 +28,14 @@ public class MonsterSingleton : Singleton<MonsterSingleton>
     private void Awake()
     {
         Assert.IsNotNull(availableMonsters); // Debugging to check monsters spawn correction on init
-        Assert.IsNotNull(player); // Debugging to check player spawn correction on init
+       
     }
 
 
     void Start()
     {
+        player = GameManager.Instance.CurrentPlayer;
+        Assert.IsNotNull(player);
         for (int i = 0; i < startAmount; i++)
         {
             InstantMonster();

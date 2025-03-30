@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 8030620}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0, z: -0, w: 0.8660254}
-  m_LocalPosition: {x: 0, y: 38, z: -22}
+  m_LocalPosition: {x: 0, y: 58.6, z: -33.9}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,6 @@ MonoBehaviour:
   availableMonsters:
   - {fileID: -9138418884273328558, guid: f531e89a1d9841a46945a69c32b34218, type: 3}
   - {fileID: -9138418884273328558, guid: 776fec24be878324ba637edc51764ba6, type: 3}
-  player: {fileID: 843921211}
   waitTime: 30
   startAmount: 5
   minRange: 5
@@ -430,11 +429,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360358224}
   m_CullTransparentMesh: 1
---- !u!1 &724300958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1065618987163410, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
-  m_PrefabInstance: {fileID: 843921207}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &806434213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1115,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114658503893516242, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       propertyPath: _latitudeLongitude.Array.data[0]
-      value: 51.52188, -2.611464
+      value: 51.552916, -2.632784
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1129,32 +1123,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4961856903295740, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8030624}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1065618987163410, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 843921211}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
 --- !u!4 &843921208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4961856903295740, guid: 35ce2bb4caba9434db5e656796b632b1, type: 3}
   m_PrefabInstance: {fileID: 843921207}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &843921211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724300958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9609dbed37d711744adf63fcc4fa9fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xp: 0
-  requiredXp: 100
-  levelBase: 100
-  monsters: []
 --- !u!1 &867702516
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2023,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb282601faed5d4f9fe8bc531de18c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentPlayer: {fileID: 843921211}
 --- !u!4 &1357265793
 Transform:
   m_ObjectHideFlags: 0

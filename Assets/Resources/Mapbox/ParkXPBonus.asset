@@ -15,4 +15,4 @@ MonoBehaviour:
   Active: 1
   _options:
     prefab: {fileID: 4501183011377667489, guid: be3fb607f95930247a016aff032a4c46, type: 3}
-    scaleDownWithWorld: 1
+    scaleDownWithWorld: 0
