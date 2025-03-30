@@ -7,7 +7,7 @@ public abstract class GameSceneManager : MonoBehaviour
     public abstract void playerTapped(GameObject player);
     public abstract void monsterTapped(GameObject monster);
 
-    public void monsterCollision(GameObject monster, Collision other)
+    public virtual void monsterCollision(GameObject monster, Collision other)
     {
 
     }

@@ -10,6 +10,7 @@ public class CaptureSceneManager : GameSceneManager
     [SerializeField] private Vector3 spawnPoint;
 
     private int currentAttemps;
+    private CaptureSceneStatus status = CaptureSceneStatus.InProgess;
 
     public int MaxAttempts
     {
@@ -20,11 +21,17 @@ public class CaptureSceneManager : GameSceneManager
         get { return currentAttemps; } 
     }
 
+    public CaptureSceneStatus Status
+    { 
+        get { return status; }
+    }
+
     private void Start()
     {
         calculateMaxThrow();
         currentAttemps = maxAttempts;
     }
+
 
     private void calculateMaxThrow()
     {
@@ -36,8 +43,12 @@ public class CaptureSceneManager : GameSceneManager
         currentAttemps--;
         if(currentAttemps <= 0)
         {
-
+            if (status != CaptureSceneStatus.Successful)
+            {
+                status = CaptureSceneStatus.Failed;
+            }
         }
+
         else
         {
             Instantiate (captureNet, spawnPoint, Quaternion.identity);
@@ -52,5 +63,10 @@ public class CaptureSceneManager : GameSceneManager
     public override void playerTapped(GameObject player)
     {
         print("CapturingSceneManager.PlayerTapped");
+    }
+
+    public override void monsterCollision(GameObject monster, Collision other)
+    {
+        status = CaptureSceneStatus.Successful;
     }
 }
