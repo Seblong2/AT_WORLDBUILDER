@@ -68,5 +68,6 @@ public class CaptureSceneManager : GameSceneManager
     public override void monsterCollision(GameObject monster, Collision other)
     {
         status = CaptureSceneStatus.Successful;
+        SceneTransitionManager.Instance.GoToScene(GameConstants.SCENE_WORLD, new List<GameObject>());
     }
 }

@@ -571,6 +571,7 @@ GameObject:
   - component: {fileID: 649455819}
   - component: {fileID: 649455818}
   - component: {fileID: 649455821}
+  - component: {fileID: 649455822}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -667,6 +668,18 @@ MonoBehaviour:
   maxAttempts: 3
   captureNet: {fileID: 6730193290197641422, guid: adf5b3510bab8aa4aa046b60dd129795, type: 3}
   spawnPoint: {x: 0, y: 2.21, z: -10.53}
+--- !u!114 &649455822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649455817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bc3aab3f75929409a84b60b776f964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &666916067
 GameObject:
   m_ObjectHideFlags: 0
