@@ -21,7 +21,10 @@ public class WorldSceneManager : GameSceneManager
 
     public override void monsterTapped(GameObject monster) // This function is a safeguard to ensure that the monsters can only be tapped when needed as i dont want to capture a monster that is already in the capture scene or inventory
     {
-        SceneManager.LoadScene(GameConstants.SCENE_CAPTURE, LoadSceneMode.Additive);
+       
+       List<GameObject> list = new List<GameObject>();
+        list.Add(monster);
+        SceneTransitionManager.Instance.GoToScene(GameConstants.SCENE_CAPTURE, list);
     }
 
     public override void playerTapped(GameObject player)
