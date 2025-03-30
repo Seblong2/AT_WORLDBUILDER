@@ -5,7 +5,7 @@ using UnityEngine;
 public static class GameConstants 
 {
     public static string SCENE_WORLD = "Location-basedGame";
-    public static string SCENE_CAPTURE = "Capture";
+    public static string SCENE_CAPTURE = "CaptureScene";
 
     public static string TAG_MONSTER = "Monster";
 
