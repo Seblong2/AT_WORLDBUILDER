@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -9138418884273328558}
   m_Layer: 0
   m_Name: MonsterRed
-  m_TagString: Popup
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -73,7 +73,7 @@ public class CaptureBall : MonoBehaviour
 
         //PC PDC
 #if UNITY_EDITOR
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             inputstatus = InputStatus.Grabbing;
         }
@@ -185,5 +185,24 @@ public class CaptureBall : MonoBehaviour
     private void Capture()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (!trackingCollisions)
+        {
+            return;
+        }
+        trackingCollisions = false;
+        if(other.gameObject.CompareTag(GameConstants.TAG_MONSTER))
+        {
+            print("Monsters");
+        }
+        else
+        {
+            print("Not Monster");
+        }
+
+        Invoke("Capture", collisionStallTime);
     }
 }

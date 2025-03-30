@@ -6,4 +6,6 @@ public static class GameConstants
 {
     public static string SCENE_WORLD = "WorldScene";
     public static string SCENE_CAPTURE = "Capture";
+
+    public static string TAG_MONSTER = "Monster";
 }

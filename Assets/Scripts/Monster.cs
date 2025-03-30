@@ -47,6 +47,18 @@ public class Monster : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        GameSceneManager[] managers = FindObjectsOfType<GameSceneManager>(); //CHECKING IF CURRENTLY ACTIVE SCENE HOLDS A SCENE MANAGER
+        foreach (GameSceneManager gameSceneManager in managers)
+        {
+            if (gameSceneManager.gameObject.activeSelf)
+            {
+                gameSceneManager.monsterCollision(this.gameObject, other);
+            }
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
