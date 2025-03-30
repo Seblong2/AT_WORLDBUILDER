@@ -184,6 +184,11 @@ public class CaptureBall : MonoBehaviour
 
     private void Capture()
     {
+        CaptureSceneManager manager = FindObjectOfType<CaptureSceneManager>();
+        if(manager != null)
+        {
+            manager.CaptureNetDestroyed();
+        }
         Destroy(gameObject);
     }
 
