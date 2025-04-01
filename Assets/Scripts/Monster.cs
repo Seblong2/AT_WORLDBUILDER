@@ -62,7 +62,7 @@ public class Monster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this); // Stops destroying all monsters in world on monster selection
+         
     }
 
     // Update is called once per frame

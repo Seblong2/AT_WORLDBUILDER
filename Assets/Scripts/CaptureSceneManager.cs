@@ -46,6 +46,7 @@ public class CaptureSceneManager : GameSceneManager
             if (status != CaptureSceneStatus.Successful)
             {
                 status = CaptureSceneStatus.Failed;
+                Invoke("MoveToWorldScene", 2.0f);
             }
         }
 
@@ -68,6 +69,12 @@ public class CaptureSceneManager : GameSceneManager
     public override void monsterCollision(GameObject monster, Collision other)
     {
         status = CaptureSceneStatus.Successful;
+
+        Invoke("MoveToWorldScene", 2.0f);
+    }
+
+    private void MoveToWorldScene()
+    {
         SceneTransitionManager.Instance.GoToScene(GameConstants.SCENE_WORLD, new List<GameObject>());
     }
 }

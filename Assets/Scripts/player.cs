@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public void addXP(int xp)
     {
        this.xp += Mathf.Max(0, xp);
+        levelData();
     }
 
     public void addMonster(GameObject monster)
