@@ -91,7 +91,7 @@ public class CaptureBall : MonoBehaviour
         }
 #endif
         //MOBILE PDC
-#if NOT_UNITY_EDITOR
+#if UNITY_ANDROID
 
         if (Input.GetTouch(0).phase == TouchPhase.Began)
         {
@@ -153,8 +153,8 @@ public class CaptureBall : MonoBehaviour
 #if UNITY_EDITOR
         result = Input.mousePosition;
 #endif
-#if NOT_UNITY_EDITOR
-        result = input.GetTouch(0).position;
+#if UNITY_ANDROID
+        result = Input.GetTouch(0).position;
 #endif
         return result;
 
